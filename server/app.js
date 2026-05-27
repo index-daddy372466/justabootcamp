@@ -16,15 +16,7 @@ const route = {
 // middleware
 app.use(express.static(path.resolve(__dirname,route.public)))
 app.use(cors())
-app.use(function(req,res,next){
-    const {path} = req;
-
-    if(path){
-        console.log(path)
-    }
-
-    next()
-})
+// app.use(testPathFn()) // test for paths
 
 
 // routes
@@ -35,3 +27,15 @@ app.use(function(req,res,next){
 app.listen(PORT,() => {
     console.log(`Listening on port ${PORT}`)
 })
+
+
+// functions
+function testPathFn(req,res,next){
+    const {path} = req;
+
+    if(path){
+        console.log(path)
+    }
+
+    next()
+}
