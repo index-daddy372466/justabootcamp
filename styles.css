@@ -135,9 +135,24 @@ main {
 .primary-color {
     color:var(--primary-color);
 }
-#contact > p {
-    text-align: center;
+
+#mailto {
+    color:var(--primary-color);
+    border:2px solid red;
+    
     margin-top:.5rem;
+}
+
+#contact {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer > p {
+    text-align: left;
+    margin-top:1.5rem;
 
     font-size:9pt;
 }
@@ -185,6 +200,9 @@ footer{
     height:65px;
 
     border-top:2px solid #f00;
+
+    padding-bottom:.5rem;
+
 }
 
 
