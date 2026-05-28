@@ -3,14 +3,19 @@ import postFetch from "../postfetch.js"
 const stars = [...document.querySelectorAll('.star')]
 const polls = [...document.querySelectorAll('.poll-item')]
 const submit_btn = document.getElementById('form-submit')
+const textarea = document.getElementById('textarea-feedback')
+
 const star_obj = {
     blank:'./media/star_blank.png',
     full:'./media/star_full.png'
 }
+const url = {
+    rating:'/rate-review/api/send-review'
+}
 let global_rating = []
 let global_rating_set = [];
 let clicked = false;
-
+let dataset = {};
 
 // map stars
 stars.map((star, index) => {
@@ -26,9 +31,17 @@ polls.map(poll => {
 })
 
 // submit button
-submit_btn.onclick = handleSubmit
+submit_btn.onclick = () => handleRatingSubmit(dataset)
 
+textarea.oninput = handleTextArea
 
+function handleTextArea(e) {
+    const value = e.target.value;
+
+    dataset.textarea = value;
+
+    console.log(dataset)
+}
 // functions
 function handleRatingClick(e) {
     global_rating_set = []
@@ -43,6 +56,9 @@ function handleRatingClick(e) {
     vibrateMode()
     clicked = true;
 
+    dataset.rating = global_rating_set.length;
+
+    console.log(dataset)
 }
 
 function startRatingHover(e,index) {
@@ -86,6 +102,32 @@ function clickPollItem(e){
     target.classList.toggle('poll-active')
 
     vibrateMode()
+
+    if(!dataset.hasOwnProperty('polls')) {
+        dataset.polls = [];
+    }
+    if(dataset.polls){
+        if(dataset.polls.indexOf(target.textContent) > -1) {
+            dataset.polls = [...dataset.polls].filter(x => x !== target.textContent)
+            
+    } else {
+        dataset.polls.push(target.textContent)
+    }
+    }
+
+    
+    // if(!target.classList.contains('poll-active') && dataset.polls.indexOf(target.textContent) == -1) {
+        
+    //     dataset.polls.push(target.textContent)
+    // }
+
+    // if(target.classList.contains('poll-active')) {
+    //     dataset.polls = [...dataset.polls].filter(x => x !== target.textContent);
+    // }
+
+    console.log(dataset)
+    console.log(target.classList)
+
 }
 
 function vibrateMode() {
@@ -97,10 +139,18 @@ function vibrateMode() {
     }
 }
 
-function handleSubmit(){
-    const dataset = {test:'kyle'}
+
+
+function handleRatingSubmit(body){
+    if(Object.keys(body).length < 1) {
+        console.error('Form: Check Body/Information');
+        return;
+    }
+
+    const dataset = body
     vibrateMode();
     
-    postFetch('/rate-review/api/send-review',dataset)
+    postFetch(url.rating,dataset)
+    window.location.href = window.location.origin;
 }
 

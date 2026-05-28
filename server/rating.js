@@ -33,19 +33,17 @@ router.use(express.static(path.resolve(__dirname, route.rating)));
 
 // routes
 router.post('/api/send-review', async (req,res) =>{
-    // const {reviewText} = req.body
-    const {test} = req.body
+    const {rating,polls,textarea} = req.body
 
     console.log(req.body)
-    console.log(test)
 
     try{
         const mailOptions = {
             from: process.env.JAB_EMAIL,
             to: process.env.JAB_EMAIL,
             subject: 'Anonymouse User Review',
-            // text: 'You have received a new anonymous review:\n\n' + reviewText
-            text: 'You have received a new anonymous review:\n\n' + test
+            // text: 'You have received a new anonymous review:\n\n' + review
+            text: 'You have received a new anonymous review:\n\nRating: ' + rating + '\n\nPolls: ' + polls + '\n\nTextarea: ' + textarea
         }
 
         await transporter.sendMail(mailOptions);

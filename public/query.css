@@ -34,6 +34,11 @@
 #rating-title{
     font-size:28pt;
 }
+
+
+.poll-item {
+    font-size:11pt;
+}
 }
 
 @media screen and (max-height:420px) and (max-width: 950px) {
@@ -62,5 +67,9 @@
 }
 #rating-title{
     font-size:28pt;
+}
+
+.poll-item {
+    font-size:11pt;
 }
 }
