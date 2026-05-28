@@ -14,6 +14,9 @@
 #### Update 2026.05.28 - 1828-ET
 <img src="./updates/media/happy_rating.png" height="100%"/>
 
+#### Update 2026.05.28 - 1933-ET
+<img src="./updates/media/Screenshot 2026-05-28 at 7.33.16 PM.png" height="100%"/>
+
 
 
 Access static site <a target="_blank" href="https://index-daddy372466.github.io/justabootcamp/">here</a>
