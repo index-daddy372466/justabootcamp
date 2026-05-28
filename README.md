@@ -12,3 +12,5 @@
 <img src="./updates/media/rating_format.png" height="100%"/>
 
 Access static site <a target="_blank" href="https://index-daddy372466.github.io/justabootcamp/">here</a>
+
+Access ratings <a target="_blank" href="https://index-daddy372466.github.io/justabootcamp/rating/rating.html">here</a>
