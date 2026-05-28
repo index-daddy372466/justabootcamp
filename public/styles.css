@@ -141,6 +141,8 @@ main {
     border:2px solid red;
     
     margin-top:.5rem;
+
+    padding:4px;
 }
 
 #contact {
@@ -203,64 +205,4 @@ footer{
 
     padding-bottom:.5rem;
 
-}
-
-
-
-
-
-
-
-@media screen and (max-width:420px) and (max-height: 950px) {
-    .details-btn {
-    min-width:88%;
-}
-
-    main {
-        flex-direction:column-reverse;
-        gap:1.5rem; 
-    }
-
-    #details-container{
-        padding-top:1.5rem;
-        border-top:2px solid #f00;
-        border-right:unset;
-
-        justify-content: start;
-
-        height:100%;
-    }
-
-    #logo-title {
-    display:flex;
-    gap:8px;
-
-    color: var(--primary-color);
-
-    font-size:28pt;
-
-    padding-left:2rem;
-}
-
-}
-
-@media screen and (max-height:420px) and (max-width: 950px) {
-    .details-btn {
-    min-width:88%;
-}
-    #details-container{
-        padding-top:3.5rem;
-
-    }
-
-      #logo-title {
-    display:flex;
-    gap:8px;
-
-    color: var(--primary-color);
-
-    font-size:28pt;
-
-    padding-left:2rem;
-}
 }
