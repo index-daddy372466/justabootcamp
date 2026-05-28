@@ -212,6 +212,10 @@ footer{
 
 
 @media screen and (max-width:420px) and (max-height: 950px) {
+    .details-btn {
+    min-width:88%;
+}
+
     main {
         flex-direction:column-reverse;
         gap:1.5rem; 
@@ -223,6 +227,8 @@ footer{
         border-right:unset;
 
         justify-content: start;
+
+        height:100%;
     }
 
     #logo-title {
@@ -235,10 +241,13 @@ footer{
 
     padding-left:2rem;
 }
+
 }
 
 @media screen and (max-height:420px) and (max-width: 950px) {
-
+    .details-btn {
+    min-width:88%;
+}
     #details-container{
         padding-top:3.5rem;
 
