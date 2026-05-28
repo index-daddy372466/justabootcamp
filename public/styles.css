@@ -92,8 +92,12 @@ main {
     cursor:pointer;
     opacity:.68;
     transition: .5s;
+    
 }
 .details-btn {
+
+    z-index: 998;
+
     padding:4px;
 
     min-width: 75%;
@@ -110,8 +114,22 @@ main {
 
     font-size:18pt;
 
-    color:var(--primary-color)
+    color:var(--primary-color);
+    
+    position:relative;
 
+    overflow:hidden;
+
+}
+
+.img-side {
+    height:35px;
+    aspect-ratio: 1 / 1;
+
+    position:absolute;
+
+    right:5px;
+    bottom:2px;;
 }
 #img-main {
     width:100%;
@@ -170,6 +188,8 @@ footer > p {
 }
 
 .fixed-logo {
+    z-index:999;
+
     width:100%;
     padding:.25rem !important;
     position:fixed;
