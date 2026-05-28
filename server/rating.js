@@ -43,7 +43,7 @@ router.post('/api/send-review', async (req,res) =>{
             to: process.env.JAB_EMAIL,
             subject: 'Anonymouse User Review',
             // text: 'You have received a new anonymous review:\n\n' + review
-            text: 'You have received a new anonymous review:\n\nRating: ' + rating + '\n\nPolls: ' + polls + '\n\nTextarea: ' + textarea
+            text: 'You have received a new anonymous review:\n\nRating: ' + rating + ` ${Number(rating) > 1 ? 'stars' : 'star'}` + '\n\nPolls: ' + polls + '\n\nTextarea: ' + textarea
         }
 
         await transporter.sendMail(mailOptions);
