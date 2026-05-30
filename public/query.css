@@ -3,6 +3,10 @@
     min-width:88%;
 }
 
+.details-btn-para {
+    font-size: 14pt !important;
+}
+
     main {
         flex-direction:column-reverse;
         gap:1.5rem; 
@@ -50,6 +54,9 @@
 
     }
 
+    .details-btn-para {
+    font-size: 14pt !important;
+}
       #logo-title {
     display:flex;
     gap:8px;

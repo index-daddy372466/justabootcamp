@@ -25,6 +25,18 @@
   cursor: pointer;
 
 }
+
+.google-btn {
+  background:#fff !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.google-btn > p {
+    color:#000 !important;
+}
 :root {
      /* background */
     --primary-bg-color: #000;
