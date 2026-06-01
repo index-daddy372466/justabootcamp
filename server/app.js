@@ -5,7 +5,8 @@ const session = require('express-session')
 const cors = require('cors')
 const path = require('path')
 const PORT=process.env.PORT || 3002
-const rateReview = require('./rating.js')
+const rateReview = require('../public/rating.js')
+const fs = require('node:fs')
 // route objects
 const route = {
     public: '../public',
@@ -23,6 +24,24 @@ app.use('/rate-review', rateReview)
 
 // routes
 
+// media
+const gallery = {
+    dir:path.resolve(__dirname,'gallery'),
+    err: 'Gallery: Ensure the path is correct and fs/fs:node is installed',
+    getFiles: function getFiles(){
+        let result = fs.readdirSync(gallery.dir);
+        if(!result) throw new Error(gallery.err);
+
+        return result;
+    }
+}
+
+// get gallery
+app.route('/gallery/media').get((req,res) => {
+    let files = gallery.getFiles()||[]
+    // console.log(files)
+    res.json({media:files})
+})
 
 
 // listen

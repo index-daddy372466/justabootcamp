@@ -1,4 +1,4 @@
-import postFetch from "../postfetch.js"
+import postFetch from "../fetch/postfetch.js"
 // variables
 const stars = [...document.querySelectorAll('.star')]
 const polls = [...document.querySelectorAll('.poll-item')]

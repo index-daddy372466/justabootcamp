@@ -22,6 +22,14 @@
         height:100%;
     }
 
+    #logo-container {
+        display:block;
+    }
+    
+    #subheader {
+        position:relative;
+    }
+
     #logo-title {
     display:flex;
     gap:8px;
@@ -49,6 +57,13 @@
     .details-btn {
     min-width:88%;
 }
+#logo-container {
+        display:block;
+    }
+    
+    #subheader {
+        position:relative;
+    }
     #details-container{
         padding-top:3.5rem;
 
