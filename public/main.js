@@ -17,3 +17,13 @@ function handleWindowScroll(e) {
 
 // onscroll event
 window.onscroll = handleWindowScroll
+
+
+export function vibrateMode() {
+    if(navigator.vibrate) {
+        navigator.vibrate(133);
+
+        console.log('vibration success')
+        // alert('vibration success')
+    }
+}

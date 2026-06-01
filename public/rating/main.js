@@ -1,4 +1,5 @@
 import postFetch from "../fetch/postfetch.js"
+import { vibrateMode } from "../main.js"
 // variables
 const stars = [...document.querySelectorAll('.star')]
 const polls = [...document.querySelectorAll('.poll-item')]
@@ -129,16 +130,6 @@ function clickPollItem(e){
     console.log(target.classList)
 
 }
-
-function vibrateMode() {
-    if(navigator.vibrate) {
-        navigator.vibrate(133);
-
-        console.log('vibration success')
-        // alert('vibration success')
-    }
-}
-
 
 
 function handleRatingSubmit(body){

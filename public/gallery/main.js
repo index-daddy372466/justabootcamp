@@ -1,4 +1,6 @@
 import getFetch from '../fetch/getfetch.js'
+import { vibrateMode } from '../main.js';
+
 const galleryContainer = document.getElementById('gallery-container')
 const preview_img = document.getElementById('preview-img')
 let getMedia = await getFetch('/gallery/media','media');
@@ -125,6 +127,7 @@ function removeClass(){}
 
 let showing = false;
 function viewImg(e) {
+    vibrateMode()
     galleryContainer.classList.add('blur-effect')
     let target = e.target
     let src = target.src;
@@ -140,9 +143,11 @@ function viewImg(e) {
 
 window.onclick = (e) => {
     if(showing && !e.target.classList.contains('class-image') && e.target.id !== 'preview-img') {
-        preview_img.classList.add('no-display')
-        galleryContainer.classList.remove('blur-effect')
+        vibrateMode();
+        preview_img.classList.add('no-display');
+        galleryContainer.classList.remove('blur-effect');
 
     }
     showing = false;
 }
+
