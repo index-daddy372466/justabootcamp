@@ -3,9 +3,6 @@ const galleryContainer = document.getElementById('gallery-container')
 const preview_img = document.getElementById('preview-img')
 let getMedia = await getFetch('/gallery/media','media');
 
-console.log(getMedia)
-
-
 /* ----------- Fetch media files ----------- */
 
 let mediaObj = {} // declare media object
