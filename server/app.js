@@ -28,18 +28,22 @@ app.use('/rate-review', rateReview)
 const gallery = {
     dir:path.resolve(__dirname,'gallery'),
     err: 'Gallery: Ensure the path is correct and fs/fs:node is installed',
-    getFiles: function getFiles(){
+    getFiles: function getFiles(res){
         let result = fs.readdirSync(gallery.dir);
         if(!result) throw new Error(gallery.err);
 
-        return result;
+        return result.map(file => {
+            let split = file.split`.`
+            let ext = split[split.length - 1];
+            let buffer = fs.readFileSync(path.resolve(__dirname,'gallery',file));
+            return {filename:file,data:`data:image/${ext};base64,${buffer.toString('base64')}`}
+        });
     }
 }
 
 // get gallery
 app.route('/gallery/media').get((req,res) => {
-    let files = gallery.getFiles()||[]
-    // console.log(files)
+    let files = gallery.getFiles();
     res.json({media:files})
 })
 
