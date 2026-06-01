@@ -71,13 +71,15 @@ function displayClasses(media_object){
         let section = document.createElement('section'), date_item = document.createElement('h5'),
         section_div = document.createElement('div')
 
-        section_div.classList.add('section-div')
+        section_div.classList.add('section-div','no-scrollbar')
         
         section.id = convertDateToTime(key);
-        section.classList.add('class-section','section-class')
+        let formal_date = new Date(+section.id).toDateString()
+        section.classList.add('class-section','section-class','no-scrollbar')
 
         date_item.classList.add('date-item','header-font')
-        date_item.textContent = section.id;
+        // date_item.textContent = section.id;
+        date_item.textContent = formal_date
 
         section.appendChild(date_item)
         galleryContainer.appendChild(section);
@@ -110,8 +112,15 @@ function displayClasses(media_object){
         })
         
     }
-    
 }
+// sort sections
+let all_sections = [...document.querySelectorAll('.class-section')]
+
+let sort_sections = [...all_sections].sort((a,b) => {
+    return new Date(b.children[0].textContent).getTime() - new Date(a.children[0].textContent).getTime()
+})
+// replace children
+galleryContainer.replaceChildren(...sort_sections)
 
 function hideClass(){}
 
@@ -119,11 +128,13 @@ function removeClass(){}
 
 let showing = false;
 function viewImg(e) {
+    galleryContainer.classList.add('blur-effect')
     let target = e.target
     let src = target.src;
 
     preview_img.src = src;
     preview_img.classList.remove('no-display');
+    
 
     setTimeout(()=>showing = true,100)
 
@@ -131,8 +142,10 @@ function viewImg(e) {
 }
 
 window.onclick = (e) => {
-    if(showing && !e.target.classList.contains('class-image')) {
+    if(showing && !e.target.classList.contains('class-image') && e.target.id !== 'preview-img') {
         preview_img.classList.add('no-display')
+        galleryContainer.classList.remove('blur-effect')
+
     }
     showing = false;
 }

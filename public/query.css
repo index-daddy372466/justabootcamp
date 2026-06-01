@@ -12,6 +12,19 @@
         gap:1.5rem; 
     }
 
+    #preview-img{
+        width:85%;
+        height:75%;
+    }
+    
+    .section-div{
+        gap:.5rem;
+    }
+
+    .class-image {
+        height:100px;
+        width:100px;
+    }
     #details-container{
         padding-top:1.5rem;
         border-top:2px solid #f00;
