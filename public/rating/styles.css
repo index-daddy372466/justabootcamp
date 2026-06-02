@@ -2,8 +2,23 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
 }
 
+header {
+    position:relative;
+    width:100%;
+}
+#subheader {
+    color:var(--primary-color);
+    float:right;
+    position:absolute;
+    bottom:2px;
+    right:5px;
+
+
+}
 @font-face {
     font-family: 'chalkduster';
     src: url('../Chalkduster.ttf');
@@ -50,6 +65,22 @@ body {
     justify-content: center;
 
     gap:1rem;
+}
+
+#logo-container{
+    transition: .5s;
+    border-bottom:2px solid #f00;
+    display:flex;
+}
+#logo-title {
+    display:flex;
+    gap:8px;
+
+    color: var(--primary-color);
+
+    font-size:32pt;
+
+    padding-left:2rem;
 }
 
 section {
