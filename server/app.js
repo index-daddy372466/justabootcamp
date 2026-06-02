@@ -43,6 +43,7 @@ const gallery = {
 
 // get gallery
 app.route('/gallery/media').get((req,res) => {
+    res.setHeader('Cache-Control', 'public, max-age=3600');
     let files = gallery.getFiles();
     res.json({media:files})
 })

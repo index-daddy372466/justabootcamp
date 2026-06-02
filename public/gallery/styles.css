@@ -286,6 +286,20 @@ footer{
     margin-top:1rem;
 }
 
+#preview-exit:hover{
+    transform:scale(.9);
+
+    cursor:pointer;
+}
+#preview-exit{
+    z-index: 999;
+    text-transform:capitalize;
+    color:#f00;
+    font-size:40px;
+    position:fixed;
+    top:100px;
+    right:40px;
+}
 #preview-img {
     position:fixed;
     height:66%;

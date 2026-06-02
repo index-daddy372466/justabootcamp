@@ -8,10 +8,10 @@ function handleWindowScroll(e) {
 
     // if logoContainer scrollY greater than 0 (leaves start)
     if(isPast(scrollY)) {
-        logoContainer.classList.add('fixed-logo')
+        logoContainer.classList.add('fixed-logo');
     }
     else {
-        logoContainer.classList.remove('fixed-logo')
+        logoContainer.classList.remove('fixed-logo');
     }
 }
 

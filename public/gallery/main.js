@@ -3,6 +3,8 @@ import { vibrateMode } from '../main.js';
 
 const galleryContainer = document.getElementById('gallery-container')
 const preview_img = document.getElementById('preview-img')
+const previewExit = document.getElementById('preview-exit')
+
 let getMedia = await getFetch('/gallery/media','media');
 
 /* ----------- Fetch media files ----------- */
@@ -121,11 +123,25 @@ let sort_sections = [...all_sections].sort((a,b) => {
 // replace children
 galleryContainer.replaceChildren(...sort_sections)
 
-function hideClass(){}
+function exitPreview(e){
+    vibrateMode()
+    const target = e.target;
+
+    if(!showing)  {
+        return false;
+    }
+
+    preview_img.src = null;
+    preview_img.classList.remove('no-display');
+    previewExit.classList.remove('no-display');
+    
+    setTimeout(()=>showing = false,100)
+
+}
 
 function removeClass(){}
 
-let showing = false;
+var showing = false;
 function viewImg(e) {
     vibrateMode()
     galleryContainer.classList.add('blur-effect')
@@ -134,10 +150,13 @@ function viewImg(e) {
 
     preview_img.src = src;
     preview_img.classList.remove('no-display');
+    previewExit.classList.remove('no-display');
     
 
     setTimeout(()=>showing = true,100)
 
+
+    previewExit.onclick = exitPreview
     
 }
 
@@ -145,6 +164,8 @@ window.onclick = (e) => {
     if(showing && !e.target.classList.contains('class-image') && e.target.id !== 'preview-img') {
         vibrateMode();
         preview_img.classList.add('no-display');
+        previewExit.classList.add('no-display');
+
         galleryContainer.classList.remove('blur-effect');
 
     }
