@@ -127,15 +127,12 @@ function exitPreview(e){
     vibrateMode()
     const target = e.target;
 
-    if(!showing)  {
-        return false;
-    }
-
     preview_img.src = null;
-    preview_img.classList.remove('no-display');
-    previewExit.classList.remove('no-display');
+    galleryContainer.classList.remove('blur-effect')
+    preview_img.classList.add('no-display');
+    previewExit.classList.add('no-display');
     
-    setTimeout(()=>showing = false,100)
+    showing = false
 
 }
 
@@ -161,14 +158,14 @@ function viewImg(e) {
 }
 
 window.onclick = (e) => {
-    if(showing && !e.target.classList.contains('class-image') && e.target.id !== 'preview-img') {
+    if(showing && !e.target.classList.contains('class-image') && !/^preview-(img|exit)$/.test(e.target.id)) {
         vibrateMode();
         preview_img.classList.add('no-display');
         previewExit.classList.add('no-display');
 
         galleryContainer.classList.remove('blur-effect');
 
+        showing = false;
     }
-    showing = false;
 }
 
