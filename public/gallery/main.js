@@ -57,7 +57,6 @@ function displayClasses(media_object){
 
         images.map(image => {
             let img = new Image();
-            console.log(image)
             img.classList.add('class-image');
 
             // 3. Set the source of your image element

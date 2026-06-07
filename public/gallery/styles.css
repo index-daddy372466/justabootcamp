@@ -281,6 +281,7 @@ footer{
     /* border:2px solid #fff; */
     width:100%;
     height:100%;
+
     position:relative;
 
     margin-top:1rem;
@@ -331,7 +332,9 @@ footer{
 
     display:flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: start;
+
+    gap: .25rem;
 
 
     
