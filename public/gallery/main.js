@@ -1,56 +1,22 @@
 import getFetch from '../fetch/getfetch.js'
 import { vibrateMode } from '../main.js';
 
+// variables
 const galleryContainer = document.getElementById('gallery-container')
 const preview_img = document.getElementById('preview-img')
 const previewExit = document.getElementById('preview-exit')
 
-let getMedia = await getFetch('/gallery/media','media');
+let files = await getFetch('/gallery/media2','dataset');
+const {media} = JSON.parse(files);
+// console.log(media) // check media dataset
 
 /* ----------- Fetch media files ----------- */
 
-let mediaObj = {} // declare media object
-// iterate through media
-for(let i = 0; i < getMedia.length; i++) {
-    let {filename,data} = getMedia[i]
-
-    let split_media = filename.split`.`
-    let media_date = split_media[0]
-
-    if(!mediaObj.hasOwnProperty(media_date) && Object.keys(mediaObj).indexOf(media_date) == -1){
-        mediaObj[media_date] = []
-    };
-
-    if([...mediaObj[media_date]].indexOf(filename) == -1) {
-         mediaObj[media_date] = [...mediaObj[media_date],{filename:filename,data:data}]
-    }
-
-}
-
-// display
-displayClasses(mediaObj)
-
-// <!-- section -->
-//      <section id="20260613" class="class-gal gal-class class-section">
-//         <h5 class="date-item header-font">20260613</h5>
-//      </section>
-//      <section id="20260606" class="class-gal gal-class class-section">
-//         <h5 class="date-item header-font">20260606</h5>
-
-//      </section>
-//      <section id="20260530" class="class-gal gal-class class-section">
-//         <h5 class="date-item header-font">20260530</h5>
-        
-//      </section>
-
-/* ----------- Fetch media files ----------- */
-
-
-
+// display rows of classes by date
+displayClasses(media)
 
 
 // functions
-
 // convert date to time
 function convertDateToTime(date){
     let year = date.slice(0,4)
@@ -86,27 +52,19 @@ function displayClasses(media_object){
         galleryContainer.appendChild(section);
         
         let images = [...media_object[key]];
+        // console.log(images)
+        // console.log(key)
+
         images.map(image => {
             let img = new Image();
-            let split_filename = image.filename.split`.`;
-            let get_ext = split_filename[split_filename.length - 1];
+            console.log(image)
             img.classList.add('class-image');
 
-            
-            let base64 = image['data'];
-
-            // 3. Set it as the source of your image element
-            img.src = base64;
-
-            // 4. Clean up memory after the image loads
-            // img.onload = () => {
-            //     URL.revokeObjectURL(imageUrl);
+            // 3. Set the source of your image element
+            img.src = image
 
             section_div.appendChild(img);
             section.appendChild(section_div);
-
-            // console.log(img)
-            // }
 
             img.onclick = viewImg;
             

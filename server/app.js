@@ -18,7 +18,7 @@ app.use(express.static(path.resolve(__dirname,route.public)))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors())
-app.use('/rate-review', rateReview)
+app.use('/rate-review', rateReview);
 // app.use(testPathFn()) // test for paths
 
 
@@ -45,9 +45,15 @@ const gallery = {
 app.route('/gallery/media').get((req,res) => {
     res.setHeader('Cache-Control', 'public, max-age=3600');
     let files = gallery.getFiles();
-    res.json({media:files})
+    res.json({media:files});
 })
 
+app.route('/gallery/media2').get((req,res) => {
+    // res.setHeader('Cache-Control', 'public, madx-age-3600')
+
+    let files = fs.readFileSync(path.resolve(__dirname,'galleryv2','files.json'), {encoding:'utf-8'})
+    res.json({dataset:files})
+})
 
 // listen
 app.listen(PORT,() => {
@@ -56,12 +62,12 @@ app.listen(PORT,() => {
 
 
 // functions
-function testPathFn(req,res,next){
-    const {path} = req;
+// function testPathFn(req,res,next){
+//     const {path} = req;
 
-    if(path){
-        console.log(path)
-    }
+//     if(path){
+//         console.log(path)
+//     }
 
-    next()
-}
+//     next()
+// }

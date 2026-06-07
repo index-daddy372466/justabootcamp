@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server/app.js",
-    "prod": "node server/app.js"
+    "prod": "node server/app.js",
+    "sharp": "node server/sharp.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "dotenv": "^17.4.2",
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "sharp": "^0.34.5"
   }
 }

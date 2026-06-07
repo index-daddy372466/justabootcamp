@@ -106,6 +106,9 @@ main {
     transition: .5s;
     
 }
+#test-img {
+    z-index: 999;
+}
 .details-btn {
 
     z-index: 998;
