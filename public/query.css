@@ -1,4 +1,4 @@
-@media screen and (max-width:420px) and (max-height: 950px) {
+@media screen and (max-width:600px) and (max-height: 950px) {
     .details-btn {
     min-width:88%;
 }
