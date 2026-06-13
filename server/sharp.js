@@ -12,7 +12,7 @@ if(is_valid(arg_gif)) {
 
     // execution
     // Compress by resizing and re-encoding with lower colors / optimization
-    let newFile = sharp(path.resolve(__dirname, `gallery/${filename}.${ext}`), { animated: true }) // 'animated: true' preserves all frames
+    let newFile = sharp(path.resolve(__dirname, `galleryv2/${filename}`), { animated: true }) // 'animated: true' preserves all frames
     .resize(400) // Shrink width to 400px (scales height automatically)
     .gif({ 
         colours: 256, // Reduce the color palette (Max 256)
