@@ -6,6 +6,8 @@ const cors = require('cors')
 const path = require('path')
 const PORT=process.env.PORT || 3002
 const rateReview = require('./routes/rating.js')
+const premium = require('./routes/premium.js')
+
 const fs = require('node:fs')
 // route objects
 const route = {
@@ -15,6 +17,7 @@ const route = {
 
 // middleware
 app.use('/rate-review', rateReview);
+app.use('/premium', premium);
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.resolve(__dirname,route.public)))
