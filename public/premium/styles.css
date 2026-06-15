@@ -1,0 +1,13 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none; 
+}
+
+#main-section {
+    
+}

@@ -7,8 +7,8 @@ const nodemailer = require('nodemailer')
 
 
 const route = {
-    public: '../public',
-    rating: '../public/rating'
+    public: '../../public',
+    rating: '../../public/rating'
 }
 
 // node mailer / transporter
@@ -28,14 +28,14 @@ const transporter = nodemailer.createTransport({
 
 
 // middleware
+router.use(express.json())
+router.use(express.urlencoded({extended:true}))
 router.use(express.static(path.resolve(__dirname, route.rating)));
 
 
 // routes
 router.post('/api/send-review', async (req,res) =>{
     const {rating,polls,textarea} = req.body
-
-    console.log(req.body)
 
     try{
         const mailOptions = {
