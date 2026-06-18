@@ -17,7 +17,7 @@ const route = {
 
 // middleware
 app.use('/rate-review', rateReview);
-// app.use('/premium', premium);
+app.use('/premium', premium);
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.resolve(__dirname,route.public)))

@@ -9,5 +9,80 @@
 }
 
 #main-section {
+    border-top:2px solid red;
+    border-bottom:2px solid red;
+
+    padding:8px;
+
+    height:100%;
+
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap:8px;
+}
+
+#premium-title {
+    margin:1.5rem; 
+
+    font-family: var(--font-header);
+    font-size:32pt;
+
+    text-align:center;
+
+    color:var(--primary-color);
+
+}
+
+.faster-one-regular {
+  font-family: "Faster One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.pricing-column {
+    bordeR:2px solid white;
+
+    width:100%;
+
+    min-height:66dvh;
+}
+
+#ppc-container > h3 {
+    color: yellow;
     
+}
+#pc-container > h3 {
+    color: rgb(0, 229, 255);
+    
+}
+#member-container > h3 {
+    color: #f00;
+    
+}
+.pricing-column > h3.pricing-title {
+    font-size: 31pt;
+
+    text-align: center;
+
+    width:100%;
+
+    animation: space-letters 8s forwards infinite alternate;
+}
+
+@keyframes space-letters {
+    0% {
+        letter-spacing: 5px;
+    }
+    50% {
+        letter-spacing: unset;
+
+    }
+    100% {
+        letter-spacing: 5px;
+    }
 }

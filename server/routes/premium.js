@@ -15,11 +15,7 @@ const route = {
 // Middleware to protect routes (ensure the user is logged in)
 router.use(express.json())
 router.use(express.urlencoded({extended:true}))
-router.use(function loveYourself(req,res,next){
-    console.log('Love Yourself!')
-    next();
-})
-router.use(express.static(path.resolve(__dirname, route.premium)));
+// router.use(express.static(path.resolve(__dirname, route.premium)));
 
 const authenticateToken = (req, res, next) => {
   // Add your JWT or Session auth logic here
@@ -30,7 +26,11 @@ const authenticateToken = (req, res, next) => {
 
 // routes
 
-
+// 0. GET home/index page
+router.get('/', (req,res) => {
+  let index = 'index.html'
+  res.sendFile(path.resolve(__dirname, route.premium, index))
+})
 
 // 1. GET all available membership tiers
 router.get('/tiers', async (req, res) => {
