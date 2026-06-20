@@ -34,7 +34,9 @@ function verifyEmail(value) {
     return emailRegex.test(value);
 }
 
-email_input.oninput = handleEmailInput
+if(email_input){
+    email_input.oninput = handleEmailInput
+}
 
 function handleEmailInput(e) {
     const target = e.target;
