@@ -45,8 +45,7 @@ async function testDB() {
 async function injectUser(value){
 try{
         await pool.query('insert into newsletter(email) values($1)',[value]);
-
-        console.log(response.rows)
+        return;
     }
     catch(err){
         throw new Error(err)
@@ -55,7 +54,7 @@ try{
 async function subscribe(value) {
     try{
         await pool.query('update newsletter set status.subribed = "TRUE" status.unsubscribed = "FALSE" where email = $1',[value]);
-
+        return;
     }
     catch(err){
         throw new Error(err)
@@ -66,6 +65,7 @@ async function unsubscribe(value) {
     try{
         await pool.query('update newsletter set status.subribed = "FALSE" status.unsubscribed = "TRUE" where email = $1',[value]);
         console.log('user unsubscribed')
+        return;
     }
     catch(err){
         throw new Error(err)
@@ -76,6 +76,7 @@ async function deleteUser(value) {
     try{
         await pool.query('delete from newsletter where email = $1',[value]);
         console.log('user deleted')
+        return;
     }
     catch(err){
         throw new Error(err)
