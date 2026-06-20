@@ -2,6 +2,9 @@
     .details-btn {
     min-width:88%;
 }
+#newsletter-description-container > p {
+    font-size:14pt;
+}
 
 .details-btn-para {
     font-size: 14pt !important;
@@ -69,6 +72,9 @@
 @media screen and (max-height:420px) and (max-width: 950px) {
     .details-btn {
     min-width:88%;
+}
+#newsletter-description-container > p {
+    font-size:14pt;
 }
 #logo-container {
         display:block;

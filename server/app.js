@@ -1,3 +1,5 @@
+const { subscribe,injectUser,unsubscribe,findEmail, deleteUser } = require('./db.js')
+
 require('dotenv').config()
 const express = require('express')
 const app = express()
@@ -33,6 +35,108 @@ app.route('/gallery/media2').get((req,res) => {
 
     let files = fs.readFileSync(path.resolve(__dirname,'galleryv2','files.json'), {encoding:'utf-8'})
     res.json({dataset:files})
+})
+
+app.route('/newsletter-join').post(async(req,res) => {
+    const {email} = req.body;
+
+    try{
+        if(!email){
+            res.redirect('/')
+        };
+
+        console.log(email);
+
+        if(await findEmail(email) === false) {
+            await injectUser(email);
+            console.log('we injected a new email');
+
+        } else {
+            console.error('email is already in the db or similar to another')
+        }
+
+            res.redirect('/')
+    }
+    catch(err){
+        console.error(err)
+    }
+})
+
+app.route('/newsletter-subscribe').post(async(req,res)=> {
+    const {email} = req.body;
+    try{
+        if(!email){
+            res.redirect('/')
+        };
+        
+        console.log(email);
+
+        if(await findEmail(email) === true) {
+            subscribe(email)
+        }
+
+            res.redirect('/')
+    }
+    catch(err){
+        throw new Error(err)
+    }
+})
+app.route('/newsletter-unsubscribe').post(async(req,res)=> {
+    const {email} = req.body;
+    try{
+        if(!email){
+            res.redirect('/')
+        };
+        
+        console.log(email);
+
+        if(await findEmail(email) === true) {
+            unsubscribe(email)
+        }
+
+            res.redirect('/')
+    }
+    catch(err){
+        throw new Error(err)
+    }
+})
+app.route('/newsletter-subscribe').post(async(req,res)=> {
+    const {email} = req.body;
+    try{
+        if(!email){
+            res.redirect('/')
+        };
+        
+        console.log(email);
+
+        if(await findEmail(email) === true) {
+
+        }
+
+            res.redirect('/')
+    }
+    catch(err){
+        throw new Error(err)
+    }
+})
+app.route('/newsletter-delete').post(async(req,res)=> {
+    const {email} = req.body;
+    try{
+        if(!email){
+            res.redirect('/')
+        };
+        
+        console.log(email);
+
+        if(await findEmail(email) === true) {
+            deleteUser(email)
+        }
+
+            res.redirect('/')
+    }
+    catch(err){
+        throw new Error(err)
+    }
 })
 
 // listen

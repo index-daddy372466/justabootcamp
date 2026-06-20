@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server/app.js",
     "prod": "node server/app.js",
-    "sharp": "node server/sharp.js"
+    "sharp": "node server/sharp.js",
+    "test-db": "node server/db.js"
   },
   "repository": {
     "type": "git",
@@ -26,11 +27,13 @@
     "express": "^5.2.1",
     "express-session": "^1.19.0",
     "helmet": "^8.2.0",
-    "nodemailer": "^8.0.9"
+    "nodemailer": "^9.0.1"
   },
   "devDependencies": {
     "dotenv": "^17.4.2",
     "nodemon": "^3.1.14",
+    "pg": "^8.22.0",
+    "sequelize": "^6.37.8",
     "sharp": "^0.34.5"
   }
 }

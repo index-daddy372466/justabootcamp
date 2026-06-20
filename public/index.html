@@ -48,6 +48,28 @@
 
     </main>
 
+    <!-- newsletter -->
+
+    <div id="newsletter-container">
+        <div id="newsletter-description-container">
+            <p id="newsletter-description">Stay up to date with the latest news!</p>
+
+            <form action="/newsletter-join" method="post" id="newsletter-form">
+                <div id="checkbox-container">
+                    <input type="checkbox" name="checkbox" id="checkbox-input" required>
+                    <em>
+                    "By checking this box, you agree to receive Just A Bootcamp’s newsletter. We will use the email address you provide to send you updates, marketing, and special offers. You can unsubscribe at any time. We will never share your data."
+                    </em>
+                </div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email-input" required placeholder="Enter a valid email address" autocomplete="off" autocorrect="off">
+                <input type="submit" value="Submit" id="submit-input">
+            </form>
+            <em id="newsletter-unsubscribe">unsubscribe anytime</em>
+
+        </div>
+
+    </div>
     <footer>
         <div id="contact">
             <h5 id="logo-title-footer" class="header-font">Just <p style="color:#f00 !important">A</p> Bootcamp</h5>
