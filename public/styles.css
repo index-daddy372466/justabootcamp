@@ -75,6 +75,15 @@ main {
     justify-content: center;
 }
 
+#media-container{
+    display:flex;
+    flex-direction: column;
+    width:100%;
+
+    align-items: center;
+    justify-content: center;
+}
+
 #img-container, #details-container {
 
     height:100%;
@@ -97,9 +106,10 @@ main {
     display:flex;
     flex-direction: column;
     align-items: center;
-    justify-content:center;
+    justify-content:space-evenly;
 
     gap:2.5rem;
+
 }
 .details-btn:hover{
     cursor:pointer;
@@ -118,7 +128,7 @@ main {
 
     min-width: 75%;
 
-    height:45px;
+    height:78px;
 
     border-radius: 12px;
     background-color:var(--btn-primary-bg);
