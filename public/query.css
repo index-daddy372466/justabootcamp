@@ -73,6 +73,10 @@
     .details-btn {
     min-width:88%;
 }
+main {
+        flex-direction:column-reverse;
+        gap:1.5rem; 
+    }
 #newsletter-description-container > p {
     font-size:14pt;
 }
