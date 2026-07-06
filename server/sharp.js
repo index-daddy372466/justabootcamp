@@ -47,13 +47,13 @@ function massResize() {
             // execution
             // Compress by resizing and re-encoding with lower colors / optimization
             let newFile = sharp(path.resolve(__dirname, `gallery/${filename}.${ext}`), { animated: true }) // 'animated: true' preserves all frames
-            .resize(400,null,{
+            .resize(500,null,{
                 kernel:'mitchell',
                 withoutEnlargement:true,
             }) // Shrink width to 400px (scales height automatically)
             .gif({ 
                 colours: 256, // Reduce the color palette (Max 256)
-                effort: 8,    // Higher CPU effort (1-10) results in smaller files
+                effort: 9,    // Higher CPU effort (1-10) results in smaller files
                 dither: 0.0   // 0.0 (off) produces sharper files and drastically reduces size
             })
             .toFile(`${filename}.${ext}`)
