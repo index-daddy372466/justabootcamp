@@ -47,7 +47,7 @@ function massResize() {
             // execution
             // Compress by resizing and re-encoding with lower colors / optimization
             let newFile = sharp(path.resolve(__dirname, `gallery/${filename}.${ext}`), { animated: true }) // 'animated: true' preserves all frames
-            .resize(275,null,{
+            .resize(400,null,{
                 kernel:'mitchell',
                 withoutEnlargement:true,
             }) // Shrink width to 400px (scales height automatically)
