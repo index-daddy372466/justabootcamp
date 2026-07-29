@@ -70,6 +70,9 @@
 }
 
 @media screen and (max-height:420px) and (max-width: 950px) {
+    img{
+        transform:scale(.75)
+    }
     .details-btn {
     min-width:88%;
 }
