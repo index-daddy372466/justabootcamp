@@ -8,6 +8,27 @@
     user-select: none; 
 }
 
+#class-schedule-container {
+    border:2px solid red;
+    height:400px;
+    width:95%;
+}
+#class-schedule-title {
+    color:var(--primary-color);
+    font-family: var(--font-header);
+    text-align: center;
+    font-size:31pt;
+}
+
+#class-list-container{
+    height:100%;
+    width:100%;
+    border:2px solid purple;
+}
+.class-li {
+    height:80px;
+    width:98%;
+}
 .unselectable {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none;      /* IE 10+ */
