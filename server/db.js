@@ -1,6 +1,5 @@
 require('dotenv').config();
 const Pool = require('pg').Pool;
-
 const { Sequelize } = require('sequelize');
 
 // Initialize Sequelize instance with PostgreSQL configurations
@@ -31,29 +30,23 @@ const object_local = {
     user:process.env.DBU,
 }
 
+// create the pool
 const pool = new Pool(process.env.STATUS !== 'production' ? object_local : object)
 
-async function testDB() {
-    try{
-        let response = await pool.query('select * from newsletter');
-        console.log(response.rows)
-    }
-    catch(err){
-        throw new Error(err)
-    }
-} 
+// async function testDB() {
+//     try{
+//         let response = await pool.query('select * from newsletter');
+//         console.log(response.rows)
+//     }
+//     catch(err){
+//         throw new Error(err)
+//     }
+// } 
+
+// inject a user
 async function injectUser(value){
 try{
-        await pool.query('insert into newsletter(email) values($1)',[value]);
-        return;
-    }
-    catch(err){
-        throw new Error(err)
-    }
-}
-async function subscribe(value) {
-    try{
-        await pool.query('update newsletter set status.subribed = "TRUE" status.unsubscribed = "FALSE" where email = $1',[value]);
+        // await pool.query('insert into users(email) values($1)',[value]);
         return;
     }
     catch(err){
@@ -61,36 +54,13 @@ async function subscribe(value) {
     }
 }
 
-async function unsubscribe(value) {
-    try{
-        await pool.query('update newsletter set status.subribed = "FALSE" status.unsubscribed = "TRUE" where email = $1',[value]);
-        console.log('user unsubscribed')
-        return;
-    }
-    catch(err){
-        throw new Error(err)
-    }
-}
-
-async function deleteUser(value) {
-    try{
-        await pool.query('delete from newsletter where email = $1',[value]);
-        console.log('user deleted')
-        return;
-    }
-    catch(err){
-        throw new Error(err)
-    }
-}
-
-
-
+// find email
 async function findEmail(value){
     try{
-        let response = await pool.query('select * from newsletter where email = $1',[value]);
-        console.log(response.rows)
-        console.log('wtf')
+        let response = await pool.query('select * from users where email = $1',[value]);
+        
         console.log("SEARCHING..",[...response.rows].find(r => r.email == value))
+
         if(await [...response.rows].find(r => r.email == value) == undefined) return false;
         return await [...response.rows].find(r => r.email == value) && response.rows !== undefined ? true : false;
     }
@@ -99,4 +69,4 @@ async function findEmail(value){
     }
 }
 
-module.exports = {injectUser,subscribe,unsubscribe,deleteUser,findEmail, pool};
+module.exports = {injectUser,findEmail, pool};
