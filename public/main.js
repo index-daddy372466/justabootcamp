@@ -21,7 +21,7 @@ function toggleHamburgerMenu(children) {
         children[i].classList.toggle(`${span_rotate}-${hamburger_opens[i]}`)
     }
 }
-toggleHamburgerMenu(hamburger_spans)
+// toggleHamburgerMenu(hamburger_spans)
 function handleWindowScroll(e) {
     const {scrollY} = window;
     const isPast = (y) => y > 0;
