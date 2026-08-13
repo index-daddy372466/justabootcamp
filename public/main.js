@@ -4,7 +4,7 @@ const email_input = document.getElementById('email-input');
 const newsletterForm = document.getElementById('newsletter-form');
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 const hamburger_menu = document.getElementById('hamburger-menu');
-const hamburger_spans = [...hamburger_menu.children];
+const hamburger_spans = hamburger_menu ? [...hamburger_menu.children] : null;
 const span_rotate = 'span-rotate'
 const hamburger_opens = ['top','mid','bottom']
 
