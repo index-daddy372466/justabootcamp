@@ -54,13 +54,21 @@ try{
     }
 }
 
-// find email
+// find user by email
 async function findEmail(value){
     try{
         let response = await pool.query('select * from users where email = $1',[value]);
-        
-        console.log("SEARCHING..",[...response.rows].find(r => r.email == value))
-
+        if(await [...response.rows].find(r => r.email == value) == undefined) return false;
+        return await [...response.rows].find(r => r.email == value) && response.rows !== undefined ? response.rows : false;
+    }
+    catch(err){
+        throw new Error(err)
+    }
+}
+// verify user by email/username
+async function verifyUserByEmail(value){
+    try{
+        let response = await pool.query('select * from users where email = $1',[value]);
         if(await [...response.rows].find(r => r.email == value) == undefined) return false;
         return await [...response.rows].find(r => r.email == value) && response.rows !== undefined ? true : false;
     }
@@ -69,4 +77,28 @@ async function findEmail(value){
     }
 }
 
-module.exports = {injectUser,findEmail, pool};
+
+async function getUserById(id) {
+    let users = await pool.query('select * from users where user_id = $1', [id])
+    users = [...users.rows]
+    if(users.length > 0){
+        return users.find(u => u.id === id) ? true : false;
+    } else {
+        console.error(`getUserById: Something went wrong`)
+        return false
+    }
+}
+
+async function insertUser(object) {
+    console.log(object)
+    
+}
+
+// get user by email
+async function getUser(val) {
+    let promise = await findEmail(val);
+
+    return promise
+}
+
+module.exports = {injectUser,findEmail,getUser,getUserById,insertUser,verifyUserByEmail, pool};
