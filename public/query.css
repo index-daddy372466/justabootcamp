@@ -6,6 +6,10 @@
     font-size:14pt;
 }
 
+#column-container>p{
+    font-size:14pt;
+}
+
 .details-btn-para {
     font-size: 14pt !important;
 }

@@ -25,12 +25,12 @@ app.use(cors())
 
 
 // routes
-app.route('/gallery/media2').get((req,res) => {
-    // res.setHeader('Cache-Control', 'public, madx-age-3600')
+// app.route('/gallery/media2').get((req,res) => {
+//     // res.setHeader('Cache-Control', 'public, madx-age-3600')
 
-    let files = fs.readFileSync(path.resolve(__dirname,'galleryv2','files.json'), {encoding:'utf-8'})
-    res.json({dataset:files})
-})
+//     let files = fs.readFileSync(path.resolve(__dirname,'galleryv2','files.json'), {encoding:'utf-8'})
+//     res.json({dataset:files})
+// })
 
 // USER REGISTRATION (SIGNUP) ROUTE
 
