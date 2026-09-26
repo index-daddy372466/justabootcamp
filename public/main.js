@@ -81,6 +81,43 @@ export function vibrateMode() {
 }
 
 // generate next saturday countdown
+// function getNextSundayCountdown() {
+//     const now = new Date();
+//     let target = new Date();
+
+//     // Set target time to 8:15:00 AM
+//     target.setHours(8, 15, 0, 0);
+
+//     // Calculate days until next Saturday (Saturday is 6)
+//     // If today is Saturday and it's past 8:15 AM, it will target next week
+//     let daysUntilSaturday = (6 - now.getDay() + 7) % 7;
+
+//     if (daysUntilSaturday === 0 && now.getTime() >= target.getTime()) {
+//         daysUntilSaturday = 7;
+//     }
+
+//     // Adjust target date to the correct Saturday
+//     target.setDate(now.getDate() + daysUntilSaturday);
+
+//     // Calculate the difference in milliseconds
+//     const difference = target.getTime() - now.getTime();
+
+//     // Convert difference into time units
+//     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+//     const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+//     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+//     let result = {
+//         totalMs: difference,
+//         days,
+//         hours,
+//         minutes,
+//         seconds,
+//         formatted: `${days}d ${hours}h ${minutes}m ${seconds}s`
+//     };
+//     return result;
+// }
 function getNextSaturdayCountdown() {
     const now = new Date();
     let target = new Date();
@@ -90,7 +127,7 @@ function getNextSaturdayCountdown() {
 
     // Calculate days until next Saturday (Saturday is 6)
     // If today is Saturday and it's past 8:15 AM, it will target next week
-    let daysUntilSaturday = (6 - now.getDay() + 7) % 7;
+    let daysUntilSaturday = (7 - now.getDay() + 7) % 7;
 
     if (daysUntilSaturday === 0 && now.getTime() >= target.getTime()) {
         daysUntilSaturday = 7;
@@ -126,6 +163,7 @@ let countdownChildren = [...countdownContainer.children];
 for(let i of countdownChildren){
     const {id} = i;
     setInterval(()=>{
+    // i.textContent = `${getNextSaturdayCountdown()[id]}`;
     i.textContent = `${getNextSaturdayCountdown()[id]}`;
     },1000)
 
