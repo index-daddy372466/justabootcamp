@@ -81,7 +81,7 @@ export function vibrateMode() {
 }
 
 // generate next saturday countdown
-// function getNextSundayCountdown() {
+// function getNextSaturdayCountdown() {
 //     const now = new Date();
 //     let target = new Date();
 
@@ -118,7 +118,7 @@ export function vibrateMode() {
 //     };
 //     return result;
 // }
-function getNextSaturdayCountdown() {
+function getNextSundayCountdown() {
     const now = new Date();
     let target = new Date();
 
@@ -164,7 +164,7 @@ for(let i of countdownChildren){
     const {id} = i;
     setInterval(()=>{
     // i.textContent = `${getNextSaturdayCountdown()[id]}`;
-    i.textContent = `${getNextSaturdayCountdown()[id]}`;
+    i.textContent = `${getNextSundayCountdown()[id]}`;
     },1000)
 
     i.classList.add('countdown')
