@@ -8,7 +8,7 @@ const nodemailer = require('nodemailer')
 
 const route = {
     public: '../../public',
-    rating: '../../public/rating'
+    pft: '../../public/pft'
 }
 
 // node mailer / transporter
@@ -30,20 +30,26 @@ const transporter = nodemailer.createTransport({
 // middleware
 router.use(express.json())
 router.use(express.urlencoded({extended:true}))
-router.use(express.static(path.resolve(__dirname, route.rating)));
+router.use(express.static(path.resolve(__dirname, route.pft)));
 
 
 // routes
-router.post('/api/send-review', async (req,res) =>{
-    const {rating,polls,textarea} = req.body
+router.post('/api/send-request', async (req,res) =>{
+    const {fname,lname,email,feet,inches,weight,gender,request} = req.body
+
+    console.log(req.body);
 
     try{
         const mailOptions = {
             from: process.env.JAB_EMAIL,
             to: process.env.JAB_EMAIL,
-            subject: 'Anonymouse User Review',
-            // text: 'You have received a new anonymous review:\n\n' + review
-            text: 'You have received a new anonymous review:\n\nRating: ' + rating + ` ${Number(rating) > 1 ? 'stars' : 'star'}` + '\n\nPolls: ' + polls + '\n\nTextarea: ' + textarea
+            subject: 'Personal Fitness Training Request',
+            text: `
+            Name: ${fname} ${lname}
+            Email: ${email}
+            Height: ${feet} ${inches}
+            Weight: ${weight}
+            Description: ${request}`,
         }
 
         await transporter.sendMail(mailOptions);

@@ -1,0 +1,49 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'chalkduster';
+    src: url('./Chalkduster.ttf');
+}
+
+body {
+    background:#000;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    padding:0 .75rem;
+
+    gap:5vw;
+}
+
+form{
+
+    display:flex;
+    flex-direction: column;
+}
+
+label{
+    text-align: center;
+}
+
+input{
+    padding:.5rem .75rem;
+}
+
+textarea {
+    resize:none;
+}
+
+label {
+    color:#fff;
+    font-family: 'chalkduster';
+    padding:.25rem 0;
+}
+
+p{
+    color:#fff;
+}

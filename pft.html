@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pft.css">
+    <title>Personal Fitness Training</title>
+</head>
+<body>
+    
+
+    <!-- form -->
+    <form action="/api/send-request">
+        <label for="fname">First Name</label>
+        <input type="text" name="fname" placeholder="First Name" required>
+        <label for="lname">Last Name</label>
+        <input type="text" name="lname" placeholder="Last Name" required>
+        <label for="height">Height</label>
+        <div style="display:flex;align-items: center;justify-content: center; gap:1rem;">
+            <input type="number" min="0" placeholder="Feet" name="feet" required><p>Ft</p> <input type="number" min="0" placeholder="Inches" name="inches" required><p>In</p>
+        </div>
+        <label for="weight">Weight</label>
+        <input type="number" required placeholder="Weight in pounds">
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Email" id="email">
+        <label for="request">Request</label>
+        <textarea name="request" id="request" rows="5" cols="8"></textarea>
+        <input type="submit">
+    </form>
+
+
+    <!-- par-q download -->
+     <div id="pft-container">
+        <iframe src="./PARQPlus2025ImageFile.pdf" width="100%" height="600px" title="PDF Document"></iframe>
+     </div>
+</body>
+</html>

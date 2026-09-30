@@ -115,7 +115,7 @@
     --font-primary:"Roboto", sans-serif;
 
     /* button */
-    --btn-primary-bg: rgb(0, 97, 0);
+    --btn-primary-bg: rgb(0, 0, 0);
 }
 html{
     scroll-behavior: smooth;
@@ -219,7 +219,7 @@ main {
 
     z-index: 998;
 
-    padding:4px;
+    padding:.75rem;
 
     min-width: 75%;
 
@@ -243,6 +243,9 @@ main {
 
 }
 
+.details-btn.training-btn {
+    border:2px solid #fff;
+}
 .img-side {
     height:35px;
     aspect-ratio: 1 / 1;

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pft.css">
+    <link rel="stylesheet" href="query.css">
+    <title>Personal Fitness Training</title>
+</head>
+<body>
+    <header>
+        <div id="logo-container">
+            <a href="/">
+                <h1 id="logo-title" class="header-font">Just <p style="color:#f00 !important">A</p> Bootcamp</h1>
+            </a>
+
+            <h2 id="subheader-title" class="header-font">Fitness Training</h2>
+        </div>
+    </header>
+
+    <div class="bulletin-container">
+    <div>
+        <p class="bulletin">1</p>
+    </div>
+
+    <div id="about-section">
+        <p>I am here to help you bridge the gap between where you are and where you dream to be. As a trainer, I don't believe in rigid, one-size-fits-all routines; your body and your energy change daily, and your movement practice should change with you. I bring a curious mind and an intuitive heart to every session, blending the science of movement with a deeply compassionate, judgment-free space. Together, we won’t just track reps and sets—we will listen to what your body is truly asking for, keeping things engaging, fluid, and fun. Whether you want to build raw strength, find your physical flow, or simply feel more at home in your own skin, I’m ready to meet you exactly where you are today. Let’s connect and move with purpose.</p>
+    </div>
+
+    </div>
+    
+
+    <div class="bulletin-container">
+    <div>
+        <p class="bulletin">2</p>
+    </div>
+
+    <div id="form-section">
+        <p>Please fill out the intake form below to get started with your personalized training program.</p>
+    </div>
+
+    <!-- form -->
+    <form action="/pft/api/send-request" method="POST" target="/">
+        <label for="fname">First Name</label>
+        <input type="text" name="fname" placeholder="First Name" required>
+        <label for="lname">Last Name</label>
+        <input type="text" name="lname" placeholder="Last Name" required>
+        <label for="height">Height</label>
+        <div id="height-input">
+            <input type="number" min="0" placeholder="Feet" name="feet" required><p>Ft</p> <input type="number" min="0" placeholder="Inches" name="inches" required><p>In</p>
+        </div>
+        <label for="weight">Weight</label>
+        <input type="number" name="weight" required placeholder="Weight in pounds">
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Email" id="email" required>
+        <label for="request">Request</label>
+        <textarea name="request" id="request" rows="5" cols="8" required></textarea>
+        <input type="submit" class="red-light">
+    </form>
+    </div>
+    
+    <div class="bulletin-container">
+    <div>
+        <p class="bulletin">3</p>
+    </div>
+        <div id="pdf-section">
+        <p>Before we begin our first training session together, please take a few moments to complete the Physical Activity Readiness Questionnaire (PAR-Q). This quick screening form helps ensure that we can design a fitness program that is completely safe, effective, and tailored to your specific health profile. Please click the link below to download the PAR-Q form, fill it out completely, and email it back to me at your earliest convenience. Having this information ahead of time allows me to properly prepare for our initial session, so we can maximize our time together and kickstart your fitness journey safely.</p>
+    </div>
+    <!-- par-q download -->
+     <div id="pft-container">
+        <iframe src="PARQPlus2025ImageFile.pdf" width="100%" height="600px" title="PDF Document"></iframe>
+     </div>
+     <a id="downloadable-pdf" download href="./PARQPlus2025ImageFile.pdf">Download</a>
+    </div>
+    
+</body>
+
+<script src="./main.js"></script>
+</html>

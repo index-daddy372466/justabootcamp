@@ -6,17 +6,17 @@ const session = require('express-session')
 const cors = require('cors')
 const path = require('path')
 const PORT=process.env.PORT || 3002
-const rateReview = require('./routes/rating.js')
+const pftRequest = require('./routes/pft.js')
 const premium = require('./routes/premium.js')
 const fs = require('node:fs')
 // route objects
 const route = {
     public: '../public',
-    rating: '../public/rating'
+    pft: '../public/pft'
 }
 
 // middleware
-app.use('/rate-review', rateReview);
+app.use('/pft', pftRequest);
 app.use('/premium', premium);
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))

@@ -1,0 +1,233 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration:none;    
+}
+
+:root {
+     /* background */
+    --primary-bg-color: #000;
+    --secondary-bg-color: #fff;
+    
+    /* color */
+    --primary-color:#fff;
+    --secondary-color:#000;
+
+    /* font */
+    --font-header:'chalkduster', 'Arial', 'Helvetica';
+    --font-primary:"Roboto", sans-serif;
+
+    /* button */
+    --btn-primary-bg: rgb(0, 0, 0);
+}
+
+@font-face {
+    font-family: 'chalkduster';
+    src: url('./Chalkduster.ttf');
+}
+
+.header-font {
+  font-family: var(--font-header);
+}
+
+header {
+    display:flex;
+    width:100%;
+    float:left;
+}
+header h2 {
+    text-align: center;
+    color:#fff;
+}
+#logo-container{
+    transition: .5s;
+    border-bottom:2px solid #f00;
+
+    width:100%;
+}
+#logo-title {
+    display:flex;
+    gap:8px;
+
+    color: var(--primary-color);
+
+    font-size:32pt;
+
+    padding-left:2rem;
+}
+
+#downloadable-pdf {
+    font-size:18pt;
+    background-color: #00f;
+    padding: .25rem;
+    border-radius: 8px;
+    color:#fff;
+    text-align: center;
+    font-family: var(--font-header);
+    width:100%;
+    
+}
+body {
+    background-image:url('./media/kettle.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat:no-repeat;
+
+    /* background:#000; */
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    gap:2rem;
+
+    width:100%;
+    padding:0 .75rem;
+    
+}
+
+#pdf-container{
+    padding: 0 .5rem;
+}
+iframe[title='PDF Document']{
+    width:90vw;
+
+
+}
+#height-input{
+display:flex;align-items: center;justify-content: center; gap:2px;
+}
+
+input[type='submit']:hover {
+    cursor:pointer;
+}
+.red-light{
+    background-color: #f00;
+}
+.green-light{
+    background-color: #0f0;
+}
+input[type='submit']{
+
+    font-size: 18pt;
+    font-family: var(--font-header);
+    color:#fff;
+}
+
+.bulletin-container{
+    position:relative;
+
+    width:100%;
+
+    display:flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    gap:.5rem;
+
+    /* background:#000; */
+
+    border-bottom:.5rem solid #fff;
+    border-left:10vw solid transparent;
+    border-right:10vw solid transparent;
+
+    padding:.25rem .75rem 2rem;
+
+}
+
+.bulletin-container div p {
+    min-height:50px;
+    background-color:rgb(18, 17, 17);
+    color:#c2c2c2;
+    line-height:2.25rem;
+    text-align: center;
+    font-size:18pt;
+
+    font-family: var(--font-primary);
+
+    padding:.25rem;
+    
+}
+.bulletin-container div {
+    /* border:2px solid cyan; */
+    height:100%;
+}
+.bulletin{
+    position:absolute;
+
+    left:-100px;
+    transform:rotate(25deg);
+    top:5px;
+
+    height:100px;
+    width:100px;
+    text-align: left;
+    font-size:32pt;
+    border:10px double #fff;
+    border-radius: 50%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    float:left;
+    
+}
+form{
+    overflow:hidden;
+    width:100%;
+
+    gap:.5rem;
+
+    background-color:rgba(18, 17, 17, 0.725);
+
+    display:flex;
+    flex-direction: column;
+
+    border:2px solid #fff;
+    border-radius: 8px;
+
+    padding:.25rem;
+
+    transform:translateY(50px);
+
+
+    animation: formfloat .77s ease-in forwards normal;
+}
+
+@keyframes formfloat {
+    from{
+        opacity:0;
+    }
+    to{
+        opacity: 1;
+        transform:translateY(0);
+    }
+}
+
+label{
+    text-align: center;
+}
+
+input{
+    padding:.5rem .75rem;
+    height:50px;
+}
+
+textarea {
+    resize:none;
+    font-size:14pt;
+    
+    padding:.25rem;
+}
+input,textarea {
+    outline:none;
+}
+label {
+    color:#fff;
+    font-family: 'chalkduster';
+    padding:.25rem 0;
+}
+
+p{
+    color:#fff;
+}
