@@ -36,3 +36,7 @@ const inputs = {
 //     });
 // }
 
+inputs.subnmit.onsubmit = submitPFTForm;
+function submitPFTForm(){
+    window.reload()
+}

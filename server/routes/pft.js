@@ -53,7 +53,8 @@ router.post('/api/send-request', async (req,res) =>{
         }
 
         await transporter.sendMail(mailOptions);
-        res.status(200).json({success:true, message: 'Review sent successfully'})
+        res.redirect('/')
+
     }
     catch(err){
         console.error('Error sending mail:',err)
