@@ -53,7 +53,7 @@ router.post('/api/send-request', async (req,res) =>{
         }
 
         await transporter.sendMail(mailOptions);
-        res.redirect('/')
+        res.redirect('/pft/#downloadable-pdf')
 
     }
     catch(err){
