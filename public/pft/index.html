@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="pft.css">
     <link rel="stylesheet" href="query.css">
     <title>Personal Fitness Training</title>
@@ -14,7 +17,7 @@
                 <h1 id="logo-title" class="header-font">Just <p style="color:#f00 !important">A</p> Bootcamp</h1>
             </a>
 
-            <h2 id="subheader-title" class="header-font">Fitness Training</h2>
+            <h2 id="subheader-title" class="header-font">Personal Fitness Training</h2>
         </div>
     </header>
 
@@ -44,20 +47,20 @@
 
     <!-- form -->
     <form action="/pft/api/send-request" method="POST">
-        <label for="fname">First Name</label>
+        <label class="header-font" for="fname">First Name</label>
         <input type="text" name="fname" placeholder="First Name" required>
-        <label for="lname">Last Name</label>
+        <label class="header-font" for="lname">Last Name</label>
         <input type="text" name="lname" placeholder="Last Name" required>
-        <label for="height">Height</label>
+        <label class="header-font" for="height">Height</label>
         <div id="height-input">
             <input type="number" min="0" placeholder="Feet" name="feet" required><p>Ft</p> <input type="number" min="0" placeholder="Inches" name="inches" required><p>In</p>
         </div>
-        <label for="weight">Weight</label>
+        <label class="header-font" for="weight">Weight</label>
         <input type="number" name="weight" required placeholder="Weight in pounds">
-        <label for="email">Email</label>
+        <label class="header-font" for="email">Email</label>
         <input type="email" name="email" placeholder="Email" id="email" required>
-        <label for="request">Request</label>
-        <textarea name="request" id="request" rows="5" cols="8" required></textarea>
+        <label class="header-font" for="request">Request</label>
+        <textarea name="request" id="request" rows="3" cols="8" required></textarea>
         <input type="submit" class="red-light">
     </form>
     </div>
@@ -75,6 +78,15 @@
      </div> -->
      <a id="downloadable-pdf" download href="./PARQPlus2025ImageFile.pdf">Download</a>
     </div>
+    
+    <footer>
+        <div id="contact">
+            <h5 id="logo-title-footer" class="header-font">Just <p style="color:#f00 !important">A</p> Bootcamp</h5>
+            <a id="mailto" href="mailto:justabootcamp@gmail.com">Send an email</a>
+        </div>
+
+            <p class="roboto-font primary-color">Copyright © 2026 JustABootcamp</p>
+    </footer>
     
 </body>
 

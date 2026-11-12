@@ -1,5 +1,4 @@
 require('dotenv').config()
-const initializePassport = require('./accounts/passport.js')
 const express = require('express')
 const app = express()
 const session = require('express-session')
@@ -34,33 +33,6 @@ app.use(cors())
 
 // USER REGISTRATION (SIGNUP) ROUTE
 
-app.get('/register', (req, res) => {
-    const register = 'register.html'
-    res.sendFile(path.resolve(__dirname,route.public,register))
-})
-app.post('/register', async (req, res) => {
-  try {
-    const { firstname, lastname, username, password } = req.body;
-
-    let users = undefined
-
-    console.log(users)
-    // Check if user already exists
-    if (users) {
-      return res.status(400).send('User already exists.');
-    }
-
-    // Hash the password securely
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Save the user data to your database
-    const newUser = { firstname, lastname, email:username, password: hashedPassword };
-
-    res.status(201).send('User registered successfully! You can now log in.');
-  } catch {
-    res.status(500).send('Error registering user.');
-  }
-});
 
 // listen
 app.listen(PORT,() => {

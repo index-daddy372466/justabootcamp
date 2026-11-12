@@ -29,9 +29,10 @@
 #height-input > p{
 display:none;
 }
-
+#height-input {
+    flex-direction: column;
+}
 .bulletin-container div p {
-    background-color:rgb(18, 17, 17);
     color:#c2c2c2;
     line-height:double;
     text-align: start;

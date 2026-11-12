@@ -34,7 +34,6 @@
     }
     #details-container{
         padding-top:1.5rem;
-        border-top:2px solid #f00;
         border-right:unset;
 
         justify-content: start;
@@ -55,8 +54,6 @@
     gap:8px;
 
     color: var(--primary-color);
-
-    font-size:28pt;
 
     padding-left:2rem;
 }

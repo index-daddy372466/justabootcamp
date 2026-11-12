@@ -1,5 +1,6 @@
 // variables
 const logoContainer = document.getElementById('logo-container');
+const logoSub = document.querySelector('.logo-subheader')
 const email_input = document.getElementById('email-input');
 const newsletterForm = document.getElementById('newsletter-form');
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -29,9 +30,11 @@ function handleWindowScroll(e) {
     // if logoContainer scrollY greater than 0 (leaves start)
     if(isPast(scrollY)) {
         logoContainer.classList.add('fixed-logo');
+        logoSub.classList.add('fixed-logo-subheader')
     }
     else {
         logoContainer.classList.remove('fixed-logo');
+        logoSub.classList.remove('fixed-logo-subheader');
     }
 }
 // onscroll event
