@@ -102,13 +102,13 @@ function enlargePhoto(e) {
     let current_view = (img.getAttribute('--data-enlarged')) === "true" ? true : false;
     
 
-    console.log("current view",current_view)
+    // console.log("current view",current_view)
 
     if(!current_view){
         img.setAttribute('--data-enlarged', !current_view);
     }
 
-    console.log("updated view",img.getAttribute('--data-enlarged') === "true" ? true : false)
+    // console.log("updated view",img.getAttribute('--data-enlarged') === "true" ? true : false)
 
 
     
