@@ -8,6 +8,7 @@ const hamburger_menu = document.getElementById('hamburger-menu');
 const hamburger_spans = hamburger_menu ? [...hamburger_menu.children] : null;
 const span_rotate = 'span-rotate'
 const hamburger_opens = ['top','mid','bottom']
+const contest_images_contiainer = document.getElementById('contest-images-container')
 // const countdownContainer = document.getElementById('countdown-container')
 
 
@@ -83,92 +84,82 @@ export function vibrateMode() {
     }
 }
 
-// generate next saturday countdown
-function getNextSaturdayCountdown() {
-    const now = new Date();
-    let target = new Date();
+// toggle photos/images
+let contest_images = [...document.querySelectorAll('.contest-img')]
+for(let i = 0; i < contest_images.length; i++) {
+    contest_images[i].onclick = enlargePhoto;
+}
+// click image / contest photo
+function enlargePhoto(e) {
+    const img = e.target;
 
-    // Set target time to 8:15:00 AM
-    target.setHours(8, 15, 0, 0);
-
-    // Calculate days until next Saturday (Saturday is 6)
-    // If today is Saturday and it's past 8:15 AM, it will target next week
-    let daysUntilSaturday = (6 - now.getDay() + 7) % 7;
-
-    if (daysUntilSaturday === 0 && now.getTime() >= target.getTime()) {
-        daysUntilSaturday = 7;
+    if(!img){
+        console.error('Error: Check image source')
+        return;
     }
 
-    // Adjust target date to the correct Saturday
-    target.setDate(now.getDate() + daysUntilSaturday);
+    // get the current boolean from contest image
+    let current_view = (img.getAttribute('--data-enlarged')) === "true" ? true : false;
+    
 
-    // Calculate the difference in milliseconds
-    const difference = target.getTime() - now.getTime();
+    console.log("current view",current_view)
 
-    // Convert difference into time units
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    if(!current_view){
+        img.setAttribute('--data-enlarged', !current_view);
+    }
 
-    let result = {
-        totalMs: difference,
-        days,
-        hours,
-        minutes,
-        seconds,
-        formatted: `${days}d ${hours}h ${minutes}m ${seconds}s`
-    };
-    return result;
+    console.log("updated view",img.getAttribute('--data-enlarged') === "true" ? true : false)
+
+
+    
+    // if current_view is enlarged (true)
+    if(current_view) {
+        console.log('Image is already open. Click the background to exit.')
+        return;
+    }
+
+
+
+    // create element (div)
+    let div = document.createElement('div');
+
+    // update div ID
+    div.setAttribute('id','enlarged-bg');
+
+    // update image class
+    img.classList.add('enlarged-contest-img')
+
+    // append image to div
+    div.appendChild(img);
+
+    // append div to container
+    contest_images_contiainer.appendChild(div)
+
+
+    // handle minimizing photo onclick
+    div.onclick = minmizePhoto
 }
-// function getNextSundayCountdown() {
-//     const now = new Date();
-//     let target = new Date();
 
-//     // Set target time to 8:15:00 AM
-//     target.setHours(8, 15, 0, 0);
 
-//     // Calculate days until next Saturday (Saturday is 6)
-//     // If today is Saturday and it's past 8:15 AM, it will target next week
-//     let daysUntilSaturday = (7 - now.getDay() + 7) % 7;
+function minmizePhoto(e) {
+    let background_element = e.current_target || document.getElementById('enlarged-bg');
 
-//     if (daysUntilSaturday === 0 && now.getTime() >= target.getTime()) {
-//         daysUntilSaturday = 7;
-//     }
+    if(!background_element){
+      console.error('Error: Check image background source')
+        return;
+    }
 
-//     // Adjust target date to the correct Saturday
-//     target.setDate(now.getDate() + daysUntilSaturday);
+    // append the image to the container 
+    let image = background_element.children[0];
+    contest_images_contiainer.appendChild(image);
 
-//     // Calculate the difference in milliseconds
-//     const difference = target.getTime() - now.getTime();
+    // update image class
+    image.classList.remove('enlarged-contest-img')
 
-//     // Convert difference into time units
-//     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-//     const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-//     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-//     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    // update image attribute to false
+    image.setAttribute('--data-enlarged',false)
 
-//     let result = {
-//         totalMs: difference,
-//         days,
-//         hours,
-//         minutes,
-//         seconds,
-//         formatted: `${days}d ${hours}h ${minutes}m ${seconds}s`
-//     };
-//     return result;
-// }
+    // remove background div
+    background_element.remove();
 
-// handle countdown container
-// let countdownChildren = [...countdownContainer.children];
-
-// iterate through countdown
-// for(let i of countdownChildren){
-//     const {id} = i;
-//     setInterval(()=>{
-//     i.textContent = `${getNextSaturdayCountdown()[id]}`;
-//     // i.textContent = `${getNextSundayCountdown()[id]}`;
-//     },1000)
-
-//     i.classList.add('countdown')
-// }
+}
