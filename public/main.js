@@ -8,7 +8,7 @@ const hamburger_menu = document.getElementById('hamburger-menu');
 const hamburger_spans = hamburger_menu ? [...hamburger_menu.children] : null;
 const span_rotate = 'span-rotate'
 const hamburger_opens = ['top','mid','bottom']
-const countdownContainer = document.getElementById('countdown-container')
+// const countdownContainer = document.getElementById('countdown-container')
 
 
 // functions
@@ -160,7 +160,7 @@ function getNextSaturdayCountdown() {
 // }
 
 // handle countdown container
-let countdownChildren = [...countdownContainer.children];
+// let countdownChildren = [...countdownContainer.children];
 
 // iterate through countdown
 // for(let i of countdownChildren){

@@ -107,7 +107,7 @@
     /* color */
     --primary-color:#fff;
     --secondary-color:#000;
-
+    --secondary-primary-color: #c1c1c1cb;
     /* font */
     --font-header:"Alata", sans-serif;
     --font-primary:"Roboto", sans-serif;
@@ -122,6 +122,13 @@ html{
 body{ 
     background-color: var(--primary-bg-color);
     padding: 0 .5rem;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width:100%;
 }
 
 main, body {
@@ -136,6 +143,8 @@ main {
     justify-content: center;
 
     padding:0 .5rem;
+
+    width:100%;
 }
 
 #media-container{
@@ -147,7 +156,7 @@ main {
     justify-content: center;
 }
 
-#img-container, #details-container {
+#details-container {
 
     height:100%;
     width:100%;
@@ -161,20 +170,7 @@ main {
     text-align: left;
     color:#fff;
 }
-#details-container{
-    
-    height:100vh;
 
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content:center;
-
-    gap:2.5rem;
-
-    margin-bottom:1rem;
-
-}
 
 .countdown{
     color:#000;
@@ -239,7 +235,50 @@ main {
     overflow:hidden;
 
 }
+/* images image contest image */
+#contest-images-container {
+    margin:0 0 3.75rem 0;
+    width:100%;
 
+    display:flex;
+    align-items: center;
+    justify-content:center;
+}
+.contest-img {
+    height:375px;
+
+}
+.contest-img:first-child{
+    transform: translate(0,15px);
+}
+.contest-img:last-child{
+    transform: translate(10px,50px);
+}
+
+#about-header, #about-header-para, header,#about-header-para-cta {
+    margin:1rem;
+}
+
+#about-header-para-cta {
+    font-size:12pt;
+}
+#about-header {
+    text-transform: uppercase;
+    text-align: start;
+
+    font-size:32pt;
+
+    width:500px;
+
+    letter-spacing: 3px;
+
+}
+#about-header-para {
+    font-size:16pt;
+    width:50%;
+
+    text-wrap: wrap;
+}
 .details-btn.training-btn {
     border:2px solid #fff;
 }
@@ -255,7 +294,13 @@ main {
 #img-main {
     width:100%;
 }
-
+header {
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items: start;
+    justify-content: center;
+}
 #logo-title {
     display:flex;
     gap:8px;
@@ -269,6 +314,9 @@ main {
 
 .primary-color {
     color:var(--primary-color);
+}
+.secondary-primary {
+    color:var(--secondary-primary-color);
 }
 
 #mailto {
@@ -313,7 +361,7 @@ footer > p {
 
     top:0;
     left:0;
-    background-color:var(--primary-bg-color) !important;
+    background-color:#000000ba;
 
     display:flex;
     align-items: center;

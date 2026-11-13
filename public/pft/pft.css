@@ -9,6 +9,7 @@
      /* background */
     --primary-bg-color: #000;
     --secondary-bg-color: #fff;
+    --secondary-primary-color: #c1c1c1cb;
     
     /* color */
     --primary-color:#fff;
@@ -22,7 +23,10 @@
     --btn-primary-bg: rgb(0, 0, 0);
 }
 
-
+#form-disclaimer {
+    padding-left:1rem;
+    font-size:12pt;
+}
 .header-font {
   font-family: var(--font-header);
 }
@@ -214,6 +218,10 @@ textarea {
     font-size:14pt;
     
     padding:.25rem;
+}
+
+.secondary-primary {
+    color:var(--secondary-primary-color);
 }
 input,textarea {
     outline:none;
